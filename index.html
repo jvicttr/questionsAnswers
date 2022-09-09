@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguntas e Respostas</title>
+</head>
+
+<body>
+    <div class="title1">
+        <h1>Quem assumiu o trono da Grã-bretanha após o falecimento da Rainha Elizabeth II?</h1>
+    </div>
+
+    <form class="perguntas1">
+        <div class="respota">
+            <span>Rei Charles III</span>
+            <input type="radio" name="pergunta1" value="correta" />
+        </div>
+        <!--<label for="pergunta 1">Rei Charles III</label>-->
+        <br>
+        <div class="respota">
+            <span>Maria Leopoldina</span>
+            <input type="radio" name="pergunta1" value="incorreta" />
+        </div>
+        <!--<label for="pergunta2">Maria Leopoldina</label>-->
+        <br>
+        <div class="respota">
+            <span>Príncipe William</span>
+            <input type="radio" name="pergunta1" value="incorreta" />
+        </div>
+        <!--<label for="pergunta3">Príncipe William</label>-->
+    </form>
+
+    <div class="title1">
+        <h1>Quem descobriu o Brasil?</h1>
+    </div>
+
+    <form class="perguntas2">
+        <div class="respota">
+            <span>Chapolin Colorado</span>
+            <input type="radio" name="pergunta1" value="incorreta" />
+        </div>
+        <!--<label for="pergunta6">Chapolin Colorado</label>-->
+        <br>
+        <div class="respota">
+            <span>Thomas Jefferson</span>
+            <input type="radio" name="pergunta1" value="incorreta" />
+        </div>
+        <!--<label for="pergunta6">Thomas Jefferson</label>-->
+        <br>
+        <div class="respota">
+            <span>Pedro Álvares Cabral</span>
+            <input type="radio" name="pergunta1" value="correta" />
+        </div>
+        <!--<label for="pergunta6">Pedro Álvares Cabral</label>-->
+    </form>
+
+
+    <script>
+        var elementos = document.querySelectorAll('[type=radio]');
+        for (var i = 0; i < elementos.length; i++) {
+            elementos[i].addEventListener('change', function (e) {
+                let marcado = e.target.value;
+                if (marcado == "correta") {
+
+                    let parentNode = e.target.parentNode;
+                    parentNode.style.backgroundColor = "green";
+
+                    let els = parentNode.parentNode.querySelectorAll('[type=radio]')
+
+                    for(var n = 0; n < els.length; n++) {
+                        els[n].disabled = true;
+                    }
+                } else if (marcado == "incorreta") {
+                    let parentNode = e.target.parentNode;
+                    parentNode.style.backgroundColor = "red";
+
+                    let els = parentNode.parentNode.querySelectorAll('[type=radio]')
+
+                    for(var n = 0; n < els.length; n++) {
+                        els[n].disabled = true;
+                    }
+
+                    let correta = parentNode.parentNode.querySelector('[value=correta]');
+                    correta.parentNode.style.backgroundColor = 'green'
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
